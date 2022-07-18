@@ -1,0 +1,10 @@
+.logo {
+    width: 5%;
+
+    @include tablet {
+        width: 10%;
+    }
+    @include mobile {
+        width: 15%;
+    }
+}
