@@ -1,0 +1,23 @@
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 3rem;
+    justify-content: space-between;
+    align-content: center;
+
+    @include tablet {
+        grid-template-columns: auto auto;
+    }
+
+    @include mobile {
+        grid-template-columns: auto;
+        gap: 2rem;
+        justify-content: center;
+    }
+}
+
+.error-message {
+    font-family: $main-typo;
+    font-size: 1.5rem;
+    color: $dark-blue;
+}

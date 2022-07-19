@@ -6,6 +6,10 @@
     padding: 0.5rem 1rem;
     width: 17rem;
 
+    @include mobile {
+        width: 14rem;
+    }
+
     &::placeholder {
         color: $dark-grey;
     }
