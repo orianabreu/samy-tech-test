@@ -1,0 +1,17 @@
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 3rem;
+    justify-content: space-between;
+    align-content: center;
+
+    @include tablet {
+        grid-template-columns: auto auto;
+    }
+
+    @include mobile {
+        grid-template-columns: auto;
+        gap: 2rem;
+        justify-content: center;
+    }
+}
