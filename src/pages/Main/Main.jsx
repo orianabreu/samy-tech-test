@@ -6,17 +6,32 @@ import Card from '../../components/Card/Card';
 
 export default function Main() {
   const [images, setImages] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:3100/images').then((response) => {
-      console.log(response.data);
-      setImages(response.data);
-    });
-    return () => {};
+    let isApiSuscribed = true;
+    setError(null);
+
+    axios
+      .get('http://localhost:3100/images')
+      .then((response) => {
+        if (isApiSuscribed) {
+            setImages(response.data);
+        }
+      })
+      .catch((error) => {
+        if (error.response) {
+            setError(error.message);
+        }
+      });
+    return () => {
+        isApiSuscribed = false;
+    };
   }, []);
 
   return (
     <Container>
+      {error && <p className="error-message">{error}. Please try again later</p>}
       <div className="grid">
         {images.map((image) => {
           return (
